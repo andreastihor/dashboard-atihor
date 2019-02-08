@@ -18,9 +18,12 @@ class CreatePost extends Component {
       content : this.state.content,
       tags : this.state.tags
     };
+    var token = document.cookie
+    token = token.split('=');
+    token = token[1]
     axios.post('http://localhost:3000/createPost' , article ,{
       headers: {
-        token : document.cookie
+        token : token
       }
     })
     .then (res => {
