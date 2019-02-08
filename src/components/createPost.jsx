@@ -18,15 +18,16 @@ class CreatePost extends Component {
       content : this.state.content,
       tags : this.state.tags
     };
-    console.log(article);
-    axios.post('http://localhost:3000/createPost' , {article : article, user : document.cookie})
+    axios.post('http://localhost:3000/createPost' , article ,{
+      headers: {
+        token : document.cookie
+      }
+    })
     .then (res => {
-      //set cookie
-      console.log('sucesssssss');
-      //redirect
+      this.props.history.push('/')
     })
     .catch(err => {
-      console.log(err);
+      console.log(err,'error cuy');
     })
   };
 
