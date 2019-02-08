@@ -1,7 +1,6 @@
 import React , {Component} from 'react'
 import Header from './header'
 import axios from 'axios'
-import {Redirect} from 'react-router-dom'
 
 class Login extends Component {
 
@@ -19,7 +18,7 @@ class Login extends Component {
     axios.post('http://localhost:3000/signin' , user)
     .then (res => {
       //set cookie
-      document.cookie = res.data
+      document.cookie = 'user='+ res.data
       this.props.history.push('/')
       //redirect
     })
