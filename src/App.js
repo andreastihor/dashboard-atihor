@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Routing  from './components/routing'
-import {BrowserRouter , Route , Switch} from 'react-router-dom'
+import {BrowserRouter} from 'react-router-dom'
 
 class App extends Component {
   render() {
@@ -8,7 +8,7 @@ class App extends Component {
       <div className="App">
       <BrowserRouter>
       <React.Fragment>
-      <Routing/> 
+      <Routing/>
       </React.Fragment>
       </BrowserRouter>
       </div>
