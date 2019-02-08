@@ -19,7 +19,8 @@ class Login extends Component {
     axios.post('http://localhost:3000/signin' , user)
     .then (res => {
       //set cookie
-      document.cookie = "user = "+ res.data
+      document.cookie = res.data
+      this.props.history.push('/')
       //redirect
     })
     .catch(err => {
