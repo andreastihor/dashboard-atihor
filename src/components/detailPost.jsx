@@ -29,7 +29,15 @@ class detailPost extends Component {
       this.props.history.push(path);
   }
   delete = () => {
-        console.log('delete here');
+    var token = document.cookie
+    token = token.split('=');
+    token = token[1];
+    axios.delete('http://localhost:3000/'+this.state.id+'/deletePost',{
+      headers : {
+        token : token
+      }
+    })
+    .then(this.props.history.push('/'))
   }
 
   nameTag = () => {
