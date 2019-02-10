@@ -11,6 +11,7 @@ class Home extends Component {
   onSubmit =  event => {
     event.preventDefault();
     this.sendQuery()
+
   }
   sendQuery = () => {
     return this.state.query

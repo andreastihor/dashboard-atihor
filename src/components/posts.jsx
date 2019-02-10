@@ -10,23 +10,19 @@ export default class Post extends Component {
 
   componentWillMount() {
     console.log(this.props);
-    if (this.props == null || this.props.query == "") {
       axios.get('http://localhost:3000/')
       .then(res => {
         this.setState({posts : res.data})
       });
-    }
-    else {
-      axios.get('http://localhost:3000/search/'+this.props.query)
-      .then(res => {
-        this.setState({posts : res.data})
-      });
-    }
   }
 
+handleChangeTags = () => {
+  this.setState({query : this.props.query})
+}
 
   render () {
     return (
+
       <ul>
       {this.state.posts.map(post =>
         <li key ={post.id}>
