@@ -5,13 +5,23 @@ import axios from 'axios'
 export default class Post extends Component {
   state = {
     posts: [],
+    query : ''
   };
 
   componentWillMount() {
-    axios.get('http://localhost:3000/')
-    .then(res => {
-      this.setState({posts : res.data})
-    });
+    console.log(this.props);
+    if (this.props == null || this.props.query == "") {
+      axios.get('http://localhost:3000/')
+      .then(res => {
+        this.setState({posts : res.data})
+      });
+    }
+    else {
+      axios.get('http://localhost:3000/search/'+this.props.query)
+      .then(res => {
+        this.setState({posts : res.data})
+      });
+    }
   }
 
 
