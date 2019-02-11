@@ -20,11 +20,10 @@ export default class Post extends Component {
   }
 
   getNewComponent(query) {
-    console.log(query);
-    if (query!= '') {
+    if (query!== '') {
       axios.get('http://localhost:3000/search/'+query)
       .then(res => {
-        if (res.data[0].message != 'id undefined!') {
+        if (res.data[0].message !== 'id undefined!') {
           this.setState({search : res.data})
         }
       })
@@ -47,15 +46,10 @@ export default class Post extends Component {
       ) :
       this.state.search[0].map(p => {
         return <li key ={p.post.id}>
-          <p> Title : {p.post.title}</p>
+          <h1>Title: {p.post.title} </h1>
           <p> Content : {p.post.content}</p>
-          <p> Title : {p.tag.name}</p>
+          <p> Tag : {p.tag.name}</p>
         </li>
-        // return <li key ={p.post.id}>
-        //     <h3>Title : {p.post.title}</h3>
-        //     <p>Post : {p.post.content} </p>
-        //     <p>Tags : </p> {<li key = {p.tag.id}> {tag.name}  </li> }
-        //   </li>
       })
   }
       </ul>

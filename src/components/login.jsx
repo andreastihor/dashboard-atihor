@@ -2,6 +2,7 @@ import React , {Component} from 'react'
 import Header from './header'
 import axios from 'axios'
 
+
 class Login extends Component {
 
   state = {
@@ -35,6 +36,10 @@ class Login extends Component {
   }
 
   render () {
+    if (document.cookie !='') {
+      this.props.history.push('/')
+    }
+
     return (
       <div>
       <Header />
@@ -48,6 +53,7 @@ class Login extends Component {
       </div>
     )
   }
+
 }
 
 export default Login
